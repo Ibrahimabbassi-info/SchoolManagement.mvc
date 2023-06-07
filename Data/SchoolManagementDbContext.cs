@@ -6,10 +6,6 @@ namespace SchoolManagement.mvc.Data;
 
 public partial class SchoolManagementDbContext : DbContext
 {
-    public SchoolManagementDbContext()
-    {
-    }
-
     public SchoolManagementDbContext(DbContextOptions<SchoolManagementDbContext> options)
         : base(options)
     {
@@ -18,9 +14,6 @@ public partial class SchoolManagementDbContext : DbContext
     public virtual DbSet<Course> Courses { get; set; }
 
     public virtual DbSet<Student> Students { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=ConnectionStrings:Default");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
